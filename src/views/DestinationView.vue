@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import { Destination } from '@/stores'
@@ -29,9 +29,15 @@ import { Destination } from '@/stores'
 const route = useRoute()
 const store = useStore()
 
-const destination = computed(() =>
-  store.state.destinations.find((d: Destination) => d.id === Number(route.params.id)),
-)
+const destination = ref<Destination | null>(null)
+
+onMounted(async () => {
+  const dest = store.state.destinations.find((d: Destination) => d.id === Number(route.params.id))
+  if (dest) {
+    destination.value = dest;
+  }
+})
+
 </script>
 
 <style scoped lang="scss">

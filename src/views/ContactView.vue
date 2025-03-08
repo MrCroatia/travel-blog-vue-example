@@ -12,32 +12,31 @@
             <i class="fas fa-map-marker-alt"></i>
             <div>
               <h3>Our Office</h3>
-              <p>123 Travel Street, Adventure City, 10001</p>
+              <p>Zagreb, Croatia</p>
             </div>
           </div>
-          
+
           <div class="info-item">
             <i class="fas fa-phone-alt"></i>
             <div>
               <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
+              <p>+385 98 192 1895</p>
             </div>
           </div>
-          
+
           <div class="info-item">
             <i class="fas fa-envelope"></i>
             <div>
               <h3>Email</h3>
-              <p>hello@wanderlust.com</p>
+              <p>fragment42design@gmail.com</p>
             </div>
           </div>
-          
+
           <div class="info-item">
             <i class="fas fa-clock"></i>
             <div>
               <h3>Office Hours</h3>
-              <p>Monday - Friday: 9am - 6pm</p>
-              <p>Saturday: 10am - 4pm</p>
+              <p>All the time.</p>
             </div>
           </div>
         </div>
@@ -47,48 +46,48 @@
           <form @submit.prevent="submitForm">
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                v-model="formData.name" 
+              <input
+                type="text"
+                id="name"
+                v-model="formData.name"
                 placeholder="John Doe"
                 required
               />
             </div>
-            
+
             <div class="form-group">
               <label for="email">Your Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                v-model="formData.email" 
+              <input
+                type="email"
+                id="email"
+                v-model="formData.email"
                 placeholder="john@example.com"
                 required
               />
             </div>
-            
+
             <div class="form-group">
               <label for="subject">Subject</label>
-              <input 
-                type="text" 
-                id="subject" 
-                v-model="formData.subject" 
+              <input
+                type="text"
+                id="subject"
+                v-model="formData.subject"
                 placeholder="Trip Inquiry"
                 required
               />
             </div>
-            
+
             <div class="form-group">
               <label for="message">Your Message</label>
-              <textarea 
-                id="message" 
-                v-model="formData.message" 
+              <textarea
+                id="message"
+                v-model="formData.message"
                 placeholder="Tell us about your travel plans or questions..."
                 rows="5"
                 required
               ></textarea>
             </div>
-            
+
             <button type="submit" class="submit-button">Send Message</button>
           </form>
         </div>
@@ -111,7 +110,7 @@ const submitForm = () => {
   // This is a placeholder function
   // In a real application, you would send the form data to a server
   alert('Thank you for your message! We will get back to you soon.')
-  
+
   // Reset form
   formData.name = ''
   formData.email = ''
@@ -121,6 +120,8 @@ const submitForm = () => {
 </script>
 
 <style scoped lang="scss">
+@use 'sass:color';
+
 .contact-view {
   max-width: 1200px;
   margin: 0 auto;
@@ -152,7 +153,7 @@ const submitForm = () => {
   width: 100%;
   gap: 3rem;
   text-align: left;
-  
+
   @media (max-width: 900px) {
     flex-direction: column;
   }
@@ -170,20 +171,20 @@ const submitForm = () => {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1.5rem;
-  
+
   i {
     font-size: 1.5rem;
     color: var(--secondary);
     margin-right: 1rem;
     margin-top: 0.25rem;
   }
-  
+
   h3 {
     font-size: 1.2rem;
     color: var(--primary);
     margin-bottom: 0.5rem;
   }
-  
+
   p {
     color: var(--text);
     margin: 0;
@@ -197,7 +198,7 @@ const submitForm = () => {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  
+
   h2 {
     font-size: 1.8rem;
     color: var(--primary);
@@ -207,14 +208,14 @@ const submitForm = () => {
 
 .form-group {
   margin-bottom: 1.5rem;
-  
+
   label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--text);
   }
-  
+
   input, textarea {
     width: 100%;
     padding: 0.75rem;
@@ -223,7 +224,7 @@ const submitForm = () => {
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.3s;
-    
+
     &:focus {
       outline: none;
       border-color: var(--secondary);
@@ -241,12 +242,12 @@ const submitForm = () => {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  
+
   &:hover {
-    background-color: darken(#ff6b6b, 10%);
+    background-color: color.adjust(#ff6b6b, $lightness: -10%);
     transform: translateY(-2px);
   }
-  
+
   &:active {
     transform: translateY(0);
   }
@@ -256,11 +257,11 @@ const submitForm = () => {
   .contact-view {
     padding: 1rem;
   }
-  
+
   .contact-title {
     font-size: 2rem;
   }
-  
+
   .contact-subtitle {
     font-size: 1rem;
   }

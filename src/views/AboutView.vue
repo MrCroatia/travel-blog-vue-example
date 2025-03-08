@@ -10,7 +10,7 @@
         <h2 class="section-title">Who We Are</h2>
         <p class="about-text">
           Wanderlust was born from a shared passion for exploration and cultural discovery.
-          Founded in 2023 by a team of seasoned travelers, we aim to inspire and empower
+          Founded in 2025 by a team of seasoned travelers, we aim to inspire and empower
           adventurers to explore the world responsibly.
         </p>
       </div>

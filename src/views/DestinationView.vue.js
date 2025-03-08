@@ -1,9 +1,15 @@
-import { computed } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 const route = useRoute();
 const store = useStore();
-const destination = computed(() => store.state.destinations.find((d) => d.id === Number(route.params.id)));
+const destination = ref(null);
+onMounted(async () => {
+    const dest = store.state.destinations.find((d) => d.id === Number(route.params.id));
+    if (dest) {
+        destination.value = dest;
+    }
+});
 debugger; /* PartiallyEnd: #3632/scriptSetup.vue */
 const __VLS_ctx = {};
 let __VLS_components;

@@ -3,7 +3,7 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3 class="footer-heading">Wanderlust</h3>
-        <p class="footer-text">Travel inspiration since 2023</p>
+        <p class="footer-text">Travel inspiration since 2025</p>
         <div class="social-links">
           <a href="#" class="social-icon">
             <i class="fab fa-instagram"></i>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2023 Wanderlust. All rights reserved</p>
+      <p>&copy; 2025 Wanderlust. All rights reserved</p>
     </div>
   </footer>
 </template>

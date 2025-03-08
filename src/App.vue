@@ -10,7 +10,7 @@
   <Footer />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { RouterView } from 'vue-router'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
@@ -40,36 +40,5 @@ import Footer from '@/components/Footer.vue'
   @media (min-width: 768px) {
     padding: 3rem 2rem;
   }
-}
-
-/* Keyframes for initial page load */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--secondary);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
 }
 </style>
