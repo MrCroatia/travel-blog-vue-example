@@ -24,7 +24,7 @@ export default createStore<State>({
         id: 1,
         title: 'Paris, France',
         location: 'Europe',
-        image: '/public/images/paris.jpg',
+        image: '/images/paris.jpg',
         excerpt: 'The City of Lights and eternal romance',
         description: `Discover the magic of Paris, where historic grandeur meets modern elegance. Marvel at the iron lattice of the Eiffel Tower, explore the vast art collections of the Louvre, and stroll along the Seine River at twilight. Indulge in buttery croissants at quaint patisseries, admire Gothic architecture at Notre-Dame, and experience the vibrant atmosphere of Montmartre. Don't miss the Champs-Élysées for luxury shopping or a sunset cruise past illuminated bridges.`,
         featured: true,
