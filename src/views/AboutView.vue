@@ -33,12 +33,12 @@
         <h2 class="section-title">Meet the Team</h2>
         <div class="team-grid">
           <div class="team-member">
-            <img src="/images/team1.jpg" alt="Founder" class="member-photo">
+            <img src="/images/team1.jpg" alt="Founder" class="member-photo" loading="lazy">
             <h3 class="member-name">Sarah Johnson</h3>
             <p class="member-role">CEO & Founder</p>
           </div>
           <div class="team-member">
-            <img src="/images/team2.jpg" alt="Editor" class="member-photo">
+            <img src="/images/team2.jpg" alt="Editor" class="member-photo" loading="lazy">
             <h3 class="member-name">Michael Chen</h3>
             <p class="member-role">Content Editor</p>
           </div>
