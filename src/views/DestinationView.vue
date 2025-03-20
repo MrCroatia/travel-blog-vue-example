@@ -32,12 +32,17 @@ const store = useStore()
 const destination = ref<Destination | null>(null)
 
 onMounted(async () => {
-  const dest = store.state.destinations.find((d: Destination) => d.id === Number(route.params.id))
+  const dest = store.getters.allDestinations?.find(
+    (d: Destination) => d.id === Number(route.params.id),
+  )
   if (dest) {
-    destination.value = dest;
+    destination.value = dest
+    console.log('Destination found:', dest)
+  } else {
+    console.log('Destination not found. route.params.id:', route.params.id)
+    console.log('Available destinations:', store.state.destinations)
   }
 })
-
 </script>
 
 <style scoped lang="scss">
