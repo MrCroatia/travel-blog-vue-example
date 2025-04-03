@@ -108,7 +108,7 @@ __VLS_asFunctionalElement(__VLS_intrinsicElements.form, __VLS_intrinsicElements.
     ...{ onSubmit: (__VLS_ctx.subscribe) },
     ...{ class: "newsletter-form" },
 });
-__VLS_asFunctionalElement(__VLS_intrinsicElements.input, __VLS_intrinsicElements.input)({
+__VLS_asFunctionalElement(__VLS_intrinsicElements.input)({
     type: "email",
     placeholder: "Enter your email",
     ...{ class: "newsletter-input" },
