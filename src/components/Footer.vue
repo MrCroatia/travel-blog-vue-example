@@ -33,29 +33,27 @@
             placeholder="Enter your email"
             class="newsletter-input"
             required
-          >
-          <button type="submit" class="newsletter-button">
-            Subscribe
-          </button>
+          />
+          <button type="submit" class="newsletter-button">Subscribe</button>
         </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Wanderlust. All rights reserved</p>
+      <p>&copy; 2025 Fragment42. All rights reserved</p>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const email = ref('');
+const email = ref('')
 
 const subscribe = () => {
-  alert(`Thanks for subscribing, ${email.value}!`);
-  email.value = '';
-};
+  alert(`Thanks for subscribing, ${email.value}!`)
+  email.value = ''
+}
 </script>
 
 <style lang="scss" scoped>

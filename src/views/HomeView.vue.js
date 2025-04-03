@@ -1,8 +1,13 @@
-import { computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import BlogPost from '@/components/BlogPost.vue';
 const store = useStore();
-const featuredDestinations = computed(() => store.getters.featuredDestinations);
+// Use ref instead of computed to avoid reactivity overhead
+const featuredDestinations = ref([]);
+onMounted(() => {
+    // Set destination data immediately after component mount
+    featuredDestinations.value = store.getters.featuredDestinations;
+});
 debugger; /* PartiallyEnd: #3632/scriptSetup.vue */
 const __VLS_ctx = {};
 let __VLS_components;

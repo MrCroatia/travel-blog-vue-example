@@ -5,7 +5,7 @@
         :src="destination.image"
         :alt="destination.title"
         class="destination-image"
-        loading="lazy"
+        :loading="$route && $route.name === 'Home' && destination.featured ? 'eager' : 'lazy'"
       />
       <div class="location-badge">{{ destination.location }}</div>
       <div class="rating-badge">
@@ -28,9 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 const props = defineProps({
   destination: {
     type: Object,

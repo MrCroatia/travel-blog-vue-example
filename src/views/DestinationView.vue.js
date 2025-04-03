@@ -5,9 +5,14 @@ const route = useRoute();
 const store = useStore();
 const destination = ref(null);
 onMounted(async () => {
-    const dest = store.state.destinations.find((d) => d.id === Number(route.params.id));
+    const dest = store.getters.allDestinations?.find((d) => d.id === Number(route.params.id));
     if (dest) {
         destination.value = dest;
+        console.log('Destination found:', dest);
+    }
+    else {
+        console.log('Destination not found. route.params.id:', route.params.id);
+        console.log('Available destinations:', store.state.destinations);
     }
 });
 debugger; /* PartiallyEnd: #3632/scriptSetup.vue */

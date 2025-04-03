@@ -60,6 +60,7 @@ __VLS_asFunctionalElement(__VLS_intrinsicElements.img, __VLS_intrinsicElements.i
     src: "/images/team1.jpg",
     alt: "Founder",
     ...{ class: "member-photo" },
+    loading: "lazy",
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.h3, __VLS_intrinsicElements.h3)({
     ...{ class: "member-name" },
@@ -74,6 +75,7 @@ __VLS_asFunctionalElement(__VLS_intrinsicElements.img, __VLS_intrinsicElements.i
     src: "/images/team2.jpg",
     alt: "Editor",
     ...{ class: "member-photo" },
+    loading: "lazy",
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.h3, __VLS_intrinsicElements.h3)({
     ...{ class: "member-name" },

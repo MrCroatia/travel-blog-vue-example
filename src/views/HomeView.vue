@@ -22,13 +22,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useStore } from 'vuex';
-import type { Destination } from '@/stores';
-import BlogPost from '@/components/BlogPost.vue';
+import { ref, onMounted } from 'vue'
+import { useStore } from 'vuex'
+import type { Destination } from '@/stores'
+import BlogPost from '@/components/BlogPost.vue'
 
-const store = useStore();
-const featuredDestinations = computed(() => store.getters.featuredDestinations as Destination[]);
+const store = useStore()
+// Use ref instead of computed to avoid reactivity overhead
+const featuredDestinations = ref<Destination[]>([])
+
+onMounted(() => {
+  // Set destination data immediately after component mount
+  featuredDestinations.value = store.getters.featuredDestinations
+})
 </script>
 
 <!-- Keep your existing styles here -->
@@ -36,6 +42,7 @@ const featuredDestinations = computed(() => store.getters.featuredDestinations a
 <style lang="scss" scoped>
 .home-view {
   padding-bottom: 4rem;
+  will-change: transform; /* Optimize for animations */
 }
 
 .hero {
@@ -50,7 +57,8 @@ const featuredDestinations = computed(() => store.getters.featuredDestinations a
   margin-bottom: 4rem;
   border-radius: 0 0 30px 30px;
   overflow: hidden;
-  animation: fadeInUp 0.8s ease-out;
+  /* Use transform for better performance instead of opacity */
+  animation: fadeInUp 0.5s ease-out;
 
   @media (min-width: 768px) {
     height: 70vh;
@@ -108,6 +116,8 @@ const featuredDestinations = computed(() => store.getters.featuredDestinations a
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 0 1rem;
+  /* Add contain property to improve performance */
+  contain: layout paint style;
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

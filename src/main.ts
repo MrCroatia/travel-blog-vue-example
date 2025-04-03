@@ -7,16 +7,28 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      })
-      .catch(error => {
-        console.log('ServiceWorker registration failed: ', error);
-      });
-  });
-}
-
+// Mount app first to ensure fast initial load
 app.mount('#app')
+
+// Register the service worker after the app has loaded
+if ('serviceWorker' in navigator) {
+  // Use window.requestIdleCallback or setTimeout to defer service worker registration
+  const registerSW = () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then((registration) => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope)
+      })
+      .catch((error) => {
+        console.log('ServiceWorker registration failed: ', error)
+      })
+  }
+
+  // If requestIdleCallback is supported, use it, otherwise fallback to setTimeout
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(registerSW, { timeout: 2000 })
+  } else {
+    // Wait a moment after initial load to register service worker
+    setTimeout(registerSW, 2000)
+  }
+}

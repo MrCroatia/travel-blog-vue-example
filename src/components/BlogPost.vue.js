@@ -1,5 +1,6 @@
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
+const route = useRoute();
 const props = defineProps({
     destination: {
         type: Object,
@@ -27,7 +28,7 @@ __VLS_asFunctionalElement(__VLS_intrinsicElements.img)({
     src: (__VLS_ctx.destination.image),
     alt: (__VLS_ctx.destination.title),
     ...{ class: "destination-image" },
-    loading: "lazy",
+    loading: (__VLS_ctx.$route && __VLS_ctx.$route.name === 'Home' && __VLS_ctx.destination.featured ? 'eager' : 'lazy'),
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
     ...{ class: "location-badge" },
