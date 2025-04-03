@@ -14,6 +14,17 @@ try {
 
   copyFileSync(srcPath, destPath)
   console.log('Successfully copied index.html to 404.html')
+
+  // Copy _headers file to dist directory to ensure proper MIME types
+  const headersSource = join(process.cwd(), 'public', '_headers')
+  const headersDestination = join(process.cwd(), 'dist', '_headers')
+
+  if (existsSync(headersSource)) {
+    copyFileSync(headersSource, headersDestination)
+    console.log('Successfully copied _headers to dist directory')
+  } else {
+    console.warn('_headers file not found in public directory')
+  }
 } catch (error) {
   console.error('Error during post-build process:', error)
 }
